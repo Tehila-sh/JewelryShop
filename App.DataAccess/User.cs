@@ -9,6 +9,7 @@ namespace App.DataAccess
 {
     public class User : Iusers
 
+
     {
         public string id { get; set; }
     }
