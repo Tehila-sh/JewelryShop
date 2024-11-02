@@ -1,13 +1,14 @@
-﻿using System;
+﻿using App.DataAccess.Repository;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using App.DataAccess.Repository;
 
-namespace App.DataAccess.Interfaces
+namespace App.BusinessLogic.Interfaces
 {
-    public interface Iorders
+    public interface IOrdersServices
+
     {
         public List<Order> GetAllOrders();
         public void CreateOrder( Order order);

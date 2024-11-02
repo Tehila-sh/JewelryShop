@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace App.DataAccess
+namespace App.DTO
 {
-    public class Jewelry
+    public class JewelryDTO
     {
-         public string  name{ get; set; }
     }
 }

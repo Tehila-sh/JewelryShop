@@ -1,13 +1,13 @@
-﻿using System;
+﻿using App.DataAccess.Repository;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using App.DataAccess.Repository;
 
-namespace App.DataAccess.Interfaces
+namespace App.BusinessLogic.Interfaces
 {
-    public interface Ijewelries
+    public interface IJewelriesServices
     {
         public List<Jewelry> GetAllJewelries();
         public Jewelry GetJewelry(string name);

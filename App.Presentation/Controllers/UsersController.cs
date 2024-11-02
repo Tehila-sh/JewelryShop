@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using App.DataAccess;
+using App.BusinessLogic.Interfaces;
+using App.DataAccess.Repository;
 
 namespace App.Presentation.Controllers
 {
@@ -8,34 +9,34 @@ namespace App.Presentation.Controllers
     [ApiController]
     public class UsersController : ControllerBase
     {
-
         List<User> users = new List<User>();
+        private IUserServices _userservices;
+        public UsersController (IUserServices userServices)
+        {
+            _userservices = userServices;
+        }
 
+        //Get api/users/1
 
-
-        // Get api/users/1
         [HttpGet("{id}")]
         public User GetUserById(string id)
         {
-          User user = users.SingleOrDefault(u=>u.id==id);
-            return user;
+            return _userservices.GetUserById(id);
         }
-
 
         // Put api/users/1
         [HttpPut("{id}")]
         public void UpdateUser(string id, [FromBody] User user)
         {
-           User updateUser= users.SingleOrDefault(u => u.id == id);
-            updateUser=user;
+           _userservices.UpdateUser(id, user);
         }
 
         // Post api/users/
         [HttpPost]
         public void CreateUser([FromBody] User user)
         {
-            users.Add(user);
+            _userservices.CreateUser(user);
         }
-
+        
     }
 }

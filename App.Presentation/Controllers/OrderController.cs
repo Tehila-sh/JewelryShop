@@ -1,4 +1,6 @@
-﻿using App.DataAccess;
+﻿using App.BusinessLogic.Interfaces;
+using App.DataAccess.Interfaces;
+using App.DataAccess.Repository;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,31 +10,33 @@ namespace App.Presentation.Controllers
     [ApiController]
     public class OrderController : ControllerBase
     {
+       
+            private IOrdersServices _ordersservices;
 
-        List<Order> orders = new List<Order>();
+            public OrderController(IOrdersServices order)
+            {
+                _ordersservices = order;
+            }
+            List<Order> orders = new List<Order>();
 
         // Get api/order
         [HttpGet]
         public List<Order> GetAllOrders()
         {
-            return orders;
+            return _ordersservices.GetAllOrders();
         }
-
         // Post api/order/
         [HttpPost]
         public void CreateOrder([FromBody] Order order)
         {
-            orders.Add(order);
+            _ordersservices.CreateOrder(order);
         }
-
-
         //Delete api/order
         [HttpDelete]
         public void DeleteOrder(int id)
         {
-            Order DeleteOrder = orders.SingleOrDefault(o => o.id == id);
 
-            orders.Remove(DeleteOrder);
+            _ordersservices.DeleteOrder(id );
         }
     }
 }

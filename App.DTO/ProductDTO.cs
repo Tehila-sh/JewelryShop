@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace App.DataAccess
+namespace App.DTO
 {
-    public class Order
+    public class ProductDTO
     {
-        public int id { get; set; }
     }
 }
