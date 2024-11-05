@@ -1,0 +1,11 @@
+C:\Users\This User\Documents\studies\react\SparkleProject\Backened\JewelryProject\JewleryProject\App.BussinesLogic\bin\Debug\net8.0\App.BussinesLogic.deps.json
+C:\Users\This User\Documents\studies\react\SparkleProject\Backened\JewelryProject\JewleryProject\App.BussinesLogic\bin\Debug\net8.0\App.BussinesLogic.dll
+C:\Users\This User\Documents\studies\react\SparkleProject\Backened\JewelryProject\JewleryProject\App.BussinesLogic\bin\Debug\net8.0\App.BussinesLogic.pdb
+C:\Users\This User\Documents\studies\react\SparkleProject\Backened\JewelryProject\JewleryProject\App.BussinesLogic\obj\Debug\net8.0\App.BussinesLogic.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\This User\Documents\studies\react\SparkleProject\Backened\JewelryProject\JewleryProject\App.BussinesLogic\obj\Debug\net8.0\App.BussinesLogic.AssemblyInfoInputs.cache
+C:\Users\This User\Documents\studies\react\SparkleProject\Backened\JewelryProject\JewleryProject\App.BussinesLogic\obj\Debug\net8.0\App.BussinesLogic.AssemblyInfo.cs
+C:\Users\This User\Documents\studies\react\SparkleProject\Backened\JewelryProject\JewleryProject\App.BussinesLogic\obj\Debug\net8.0\App.BussinesLogic.csproj.CoreCompileInputs.cache
+C:\Users\This User\Documents\studies\react\SparkleProject\Backened\JewelryProject\JewleryProject\App.BussinesLogic\obj\Debug\net8.0\App.BussinesLogic.dll
+C:\Users\This User\Documents\studies\react\SparkleProject\Backened\JewelryProject\JewleryProject\App.BussinesLogic\obj\Debug\net8.0\refint\App.BussinesLogic.dll
+C:\Users\This User\Documents\studies\react\SparkleProject\Backened\JewelryProject\JewleryProject\App.BussinesLogic\obj\Debug\net8.0\App.BussinesLogic.pdb
+C:\Users\This User\Documents\studies\react\SparkleProject\Backened\JewelryProject\JewleryProject\App.BussinesLogic\obj\Debug\net8.0\ref\App.BussinesLogic.dll
