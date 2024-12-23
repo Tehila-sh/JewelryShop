@@ -1,6 +1,9 @@
 ﻿using App.BusinessLogic.Interfaces;
+using App.DataAccess.Entities;
 using App.DataAccess.Interfaces;
 using App.DataAccess.Repository;
+using App.DTO;
+using AutoMapper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,21 +15,30 @@ namespace App.BusinessLogic.Services
 
     public class OrderServices :IOrdersServices
     {
-        List<Order> orders = new List<Order>();
         private Iorders _orders;
+        private IMapper _mapper;
 
-        public OrderServices(Iorders orders)
+        public OrderServices(Iorders orders , IMapper mapper)
         {
             _orders = orders;
+            _mapper = mapper;
         }
-        public List<Order> GetAllOrders()
+        public List<OrderDTO> GetAllOrders()
         {
-            return _orders.GetAllOrders();
+            List<Order> orderList = _orders.GetAllOrders();
+            return _mapper.Map<List<OrderDTO>>(orderList);
         }
-     
-        public void CreateOrder( Order order)
+
+        public List<OrderDTO> getUserOrders(int id)
         {
-            _orders.CreateOrder (order);
+            List<Order> orderList = _orders.getUserOrders(id);
+            return _mapper.Map<List<OrderDTO>>(orderList);
+        }
+
+        public OrderDTO CreateOrder(CreateOrderDto order)
+        {
+           
+            return _mapper.Map<OrderDTO>(_orders.CreateOrder(_mapper.Map<Order>(order)));
         }
        
         public void DeleteOrder(int id)

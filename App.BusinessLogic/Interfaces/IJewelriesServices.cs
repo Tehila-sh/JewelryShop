@@ -1,4 +1,5 @@
 ﻿using App.DataAccess.Repository;
+using App.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace App.BusinessLogic.Interfaces
 {
     public interface IJewelriesServices
     {
-        public List<Jewelry> GetAllJewelries();
-        public Jewelry GetJewelry(string name);
+        public List<JewelryDTO> GetAllJewelries();
+        public JewelryDTO GetJewelry(string name);
     }
 }

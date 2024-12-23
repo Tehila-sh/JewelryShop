@@ -2,6 +2,11 @@
 using Microsoft.AspNetCore.Mvc;
 using App.BusinessLogic.Interfaces;
 using App.DataAccess.Repository;
+using App.DTO;
+using AutoMapper;
+
+using App.BusinessLogic.Services;
+using App.DataAccess.Entities;
 
 namespace App.Presentation.Controllers
 {
@@ -9,33 +14,43 @@ namespace App.Presentation.Controllers
     [ApiController]
     public class UsersController : ControllerBase
     {
-        List<User> users = new List<User>();
         private IUserServices _userservices;
-        public UsersController (IUserServices userServices)
+        private IMapper _mapper;
+        public UsersController (IUserServices userServices,IMapper mapper)
         {
             _userservices = userServices;
+            _mapper = mapper;
         }
 
         //Get api/users/1
 
         [HttpGet("{id}")]
-        public User GetUserById(string id)
+        public UserDTO GetUserById(int id)
         {
             return _userservices.GetUserById(id);
+        }
+        //Get api/users/1
+        [HttpGet("{email}/{password}")]
+        public UserDTO GetUserByDetails( string email, string password)
+        {
+            return _userservices.GetUserByDetails(email, password);
         }
 
         // Put api/users/1
         [HttpPut("{id}")]
-        public void UpdateUser(string id, [FromBody] User user)
+        public UserDTO UpdateUser(int id, [FromBody] CreateUserDto user)
         {
-           _userservices.UpdateUser(id, user);
+            
+           return _userservices.UpdateUser(id, user);
         }
 
         // Post api/users/
         [HttpPost]
-        public void CreateUser([FromBody] User user)
+        public UserDTO CreateUser([FromBody] CreateUserDto user)
+
         {
-            _userservices.CreateUser(user);
+           return _userservices.CreateUser(user);
+            
         }
         
     }

@@ -1,4 +1,6 @@
-﻿using App.DataAccess.Repository;
+﻿using App.DataAccess.Entities;
+using App.DataAccess.Repository;
+using App.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,8 +12,9 @@ namespace App.BusinessLogic.Interfaces
     public interface IOrdersServices
 
     {
-        public List<Order> GetAllOrders();
-        public void CreateOrder( Order order);
+        public List<OrderDTO> GetAllOrders();
+        public OrderDTO CreateOrder( CreateOrderDto order);
         public void DeleteOrder(int id);
+        public List<OrderDTO> getUserOrders(int id);
     }
 }

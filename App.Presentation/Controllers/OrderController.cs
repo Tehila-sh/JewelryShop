@@ -1,6 +1,7 @@
 ﻿using App.BusinessLogic.Interfaces;
 using App.DataAccess.Interfaces;
 using App.DataAccess.Repository;
+using App.DTO;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -17,22 +18,32 @@ namespace App.Presentation.Controllers
             {
                 _ordersservices = order;
             }
-            List<Order> orders = new List<Order>();
+            
 
         // Get api/order
         [HttpGet]
-        public List<Order> GetAllOrders()
+        public List<OrderDTO> GetAllOrders()
         {
             return _ordersservices.GetAllOrders();
         }
+
+
+        // Get api/order/id
+        [HttpGet("{id}")]
+        public List<OrderDTO> getUserOrders(int id)
+        {
+
+          return  _ordersservices.getUserOrders(id);
+        }
+
         // Post api/order/
-        [HttpPost]
-        public void CreateOrder([FromBody] Order order)
+        [HttpPost ]
+        public void CreateOrder([FromBody] CreateOrderDto order)
         {
             _ordersservices.CreateOrder(order);
         }
         //Delete api/order
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public void DeleteOrder(int id)
         {
 

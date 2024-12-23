@@ -1,5 +1,6 @@
 ﻿using App.BusinessLogic.Interfaces;
 using App.DataAccess.Repository;
+using App.DTO;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,7 +10,6 @@ namespace App.Presentation.Controllers
     [ApiController]
     public class JewelriesController : ControllerBase
     {
-        List<Jewelry> jewelries = new List<Jewelry>();
         private IJewelriesServices _jewelriesservices;
 
         public JewelriesController(IJewelriesServices jewelries)
@@ -18,15 +18,15 @@ namespace App.Presentation.Controllers
         }
 
         [HttpGet]
-        public List<Jewelry> GetAllJewelries()
+        public List<JewelryDTO> GetAllJewelries()
         {
             return _jewelriesservices.GetAllJewelries();
         }
 
-        [HttpGet("{id}")]
-        public Jewelry GetJewelry(string name)
+        [HttpGet("{name}")]
+        public JewelryDTO GetJewelry(string name)
         {
-          
+
             return _jewelriesservices.GetJewelry(name);
         }
 
